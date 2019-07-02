@@ -1,0 +1,12 @@
+20190701
+1. 手动创建credit note，保存之后系统提示创建成功，但是在搜索结果里没有显示
+2. 昨天remarks 包含特殊字符的情况仍然不能保存，有400错误，中文字符还是不能显示
+3. CN/DN download PDF, view PDF显示错误，close 一个"Uploaded"状态的CN返回系统错误，验证过服务器上文件夹读写权限是正常的
+4. Dispute waive != 0的情况，close之后，状态显示Pending on CN/DN process，但是系统没有自动生成CD/DN
+
+原因分析：
+1&4.由于上版处理remark中的回车字符导致 remark是空的情况会少记录。
+2.特殊字符处理不全 添加 双引号 一个\的情况，中文问题是代码未release导致
+3.rpt文件是旧的
+
+计划release v20190703
